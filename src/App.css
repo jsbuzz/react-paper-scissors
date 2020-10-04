@@ -1,0 +1,92 @@
+* {
+  font-family: courier;
+}
+
+h1 {
+  color: navy;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#stage {
+  width: 812px;
+  height: 430px;
+  margin: 20px auto;
+  background-color: navy;
+  border: 6px solid navy;
+  border-radius: 10px;
+}
+
+.how-to {
+  color: navy;
+  text-align: center;
+  font-weight: 600;
+}
+
+.quote {
+  width: 812px;
+  margin: 0px auto;
+  color: navy;
+  font-size: 12px;
+}
+
+.player {
+  width: 352px;
+  float: left;
+  margin-left: 36px;
+}
+
+.player .score {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+}
+
+.hand-title {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+}
+
+/* hand selector */
+.hand-map {
+  width: 350px;
+  height: 350px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+area {
+  cursor: crosshair;
+}
+
+/* Sheldon */
+.sheldon {
+  width: 350px;
+  height: 350px;
+  border: 1px solid white;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sheldon.ready {
+  background-image: url("/sheldon/sheldon-plays.jpg");
+  background-position-x: 35%;
+}
+.sheldon.thinking {
+  background-image: url("/sheldon/sheldon-thinking.jpg");
+  background-position-x: 50%;
+}
+.sheldon.wins {
+  background-image: url("/sheldon/sheldon-wins.jpg");
+  background-position-x: 50%;
+}
+.sheldon.looses {
+  background-image: url("/sheldon/sheldon-looses.jpg");
+  background-position-x: 22%;
+}
