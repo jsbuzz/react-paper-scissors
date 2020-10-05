@@ -16,7 +16,7 @@ function App() {
         schema={GameSpace}
         name="GameSpace"
         services={[GameService]}
-        debug="true"
+        debug
       >
         <GameMessage />
 

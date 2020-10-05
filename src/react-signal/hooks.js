@@ -38,7 +38,8 @@ export function useListeners(...listeners) {
     return function cleanup() {
       Control.cleanup(instance);
     };
-  }, [instance, namespace, listeners]);
+    // eslint-disable-next-line
+  }, []);
 
   return {
     trigger: (...a) => Control.withActor(instance, namespace).trigger(...a),

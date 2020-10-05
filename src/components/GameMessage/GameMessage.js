@@ -6,6 +6,7 @@ export const GameMessage = () => {
   const defaultMessage =
     "Do you want to play Rock Paper Scissors Lizard Spock?";
   const [message, setMessage] = useState(defaultMessage);
+
   useListeners(
     RoundResult,
     ({ message }) => setMessage(message),

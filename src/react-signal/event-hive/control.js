@@ -111,7 +111,11 @@ window.Control = Control;
 const filterActor = (actorRx) => (loggerFn) => (...a) => {
   const shouldRun = (actor) => !!actorName(actor).match(actorRx);
 
-  if (loggerFn.name === "logCallback" && !shouldRun(a[0])) return;
+  if (
+    (loggerFn.name === "logCallback" || loggerFn.name === "logRerender") &&
+    !shouldRun(a[0])
+  )
+    return;
 
   if (!shouldRun(Control.actor)) return;
 
@@ -120,6 +124,8 @@ const filterActor = (actorRx) => (loggerFn) => (...a) => {
 
 const filterEvent = (eventRx) => (loggerFn) => (...a) => {
   const shouldRun = (event) => !!event.name.match(eventRx);
+
+  if (loggerFn.name === "logRerender") return;
 
   if (
     (loggerFn.name === "logEventCancelled" ||
