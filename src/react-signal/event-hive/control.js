@@ -95,10 +95,20 @@ function fnName(fn) {
 
   const def = fn.toString().match(/_this[0-9]?\.([a-zA-Z_$]+)\(/i);
   if (!def) {
-    const functionNames = fn.toString().match(/[a-zA-Z_]+\([^)]*\)/g);
+    let functionNames = fn.toString().match(/[a-zA-Z_]+\([^)]*\)/g);
 
     if (functionNames && functionNames.length) {
-      return "'" + functionNames.map((n) => n.split("(")[0]).join("|") + "'";
+      return (
+        "'" +
+        functionNames
+          .map((n) => n.split("(")[0])
+          .reduce((a, c) => {
+            if (c === a[a.length - 1]) return a;
+            return [...a, c];
+          }, [])
+          .join("|") +
+        "'"
+      );
     }
   }
 
