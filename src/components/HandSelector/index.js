@@ -1,4 +1,3 @@
-import Connect from "../../react-signal";
-import { HandSelector, mapStateToProps } from "./HandSelector";
+import { HandSelector } from "./HandSelector";
 
-export default Connect(HandSelector, mapStateToProps);
+export default HandSelector;

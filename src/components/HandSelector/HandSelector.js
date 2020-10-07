@@ -1,7 +1,7 @@
 import React from "react";
 import { Rock, Paper, Scissors, Lizard, Spock } from "../../Hand";
 import { ChooseHand, StartRound } from "../../namespace/events";
-import { useNamespace } from "../../react-signal/hooks";
+import { useNamespace, useSelector } from "../../react-signal/hooks";
 
 const handCoords = [
   { hand: Rock, coords: "175, 75, 60" },
@@ -11,8 +11,11 @@ const handCoords = [
   { hand: Spock, coords: "75, 155, 60" },
 ];
 
-export const HandSelector = ({ inGame }) => {
+export const inGameSelector = ({ sheldonState }) => sheldonState === "thinking";
+
+export const HandSelector = () => {
   const { trigger } = useNamespace();
+  const inGame = useSelector(inGameSelector);
 
   const onImageClick = () => inGame || trigger(StartRound);
   return (
@@ -44,7 +47,3 @@ export const HandSelector = ({ inGame }) => {
     </div>
   );
 };
-
-export const mapStateToProps = ({ sheldonState }) => ({
-  inGame: sheldonState === "thinking",
-});
